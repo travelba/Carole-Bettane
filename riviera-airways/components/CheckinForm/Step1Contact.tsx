@@ -7,6 +7,7 @@ import {
   type UseFormRegisterReturn,
 } from 'react-hook-form';
 import type { CheckinFormValues } from './formTypes';
+import { maskDateFr } from '@/lib/maskDate';
 
 const errorClass = 'mt-1 text-xs text-[#B76E79]';
 
@@ -20,6 +21,8 @@ interface FloatingFieldProps {
   inputMode?: 'text' | 'numeric' | 'tel' | 'email';
   placeholder?: string;
   hint?: string;
+  /** Si fourni, reformate la valeur saisie à chaque frappe (ex. masque de date). */
+  mask?: (value: string) => string;
 }
 
 /** Champ à label flottant (style luxe). */
@@ -33,6 +36,7 @@ function FloatingField({
   inputMode,
   placeholder = ' ',
   hint,
+  mask,
 }: FloatingFieldProps) {
   return (
     <div>
@@ -45,6 +49,14 @@ function FloatingField({
           placeholder={placeholder}
           className="peer w-full rounded-lg border border-[rgba(201,168,76,0.2)] bg-[#2C2620] px-4 pb-2 pt-6 text-[#F5E6C8] placeholder-transparent transition-colors focus:border-[#C9A84C] focus:outline-none"
           {...registration}
+          onChange={
+            mask
+              ? (e) => {
+                  e.target.value = mask(e.target.value);
+                  return registration.onChange(e);
+                }
+              : registration.onChange
+          }
         />
         <label
           htmlFor={id}
@@ -93,6 +105,7 @@ export function Step1Contact() {
         id="contact-naissance"
         label="Date de naissance (JJ/MM/AAAA)"
         inputMode="numeric"
+        mask={maskDateFr}
         registration={register('contact.dateNaissance')}
         error={errors.contact?.dateNaissance}
       />

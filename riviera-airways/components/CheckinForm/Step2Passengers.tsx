@@ -3,6 +3,7 @@
 import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import type { PassengerType } from '@/types/registration';
+import { maskDateFr } from '@/lib/maskDate';
 import {
   MAX_ADDITIONAL_PASSENGERS,
   MAX_PASSENGERS_TOTAL,
@@ -158,12 +159,23 @@ export function Step2Passengers() {
               </div>
               <div>
                 <label className={labelClass}>Date de naissance</label>
-                <input
-                  className={inputClass}
-                  placeholder="JJ/MM/AAAA"
-                  inputMode="numeric"
-                  {...register(`passengers.${index}.dateNaissance` as const)}
-                />
+                {(() => {
+                  const dateReg = register(
+                    `passengers.${index}.dateNaissance` as const
+                  );
+                  return (
+                    <input
+                      className={inputClass}
+                      placeholder="JJ/MM/AAAA"
+                      inputMode="numeric"
+                      {...dateReg}
+                      onChange={(e) => {
+                        e.target.value = maskDateFr(e.target.value);
+                        return dateReg.onChange(e);
+                      }}
+                    />
+                  );
+                })()}
                 {errors.passengers?.[index]?.dateNaissance && (
                   <p className={errorClass}>
                     {errors.passengers[index]?.dateNaissance?.message}

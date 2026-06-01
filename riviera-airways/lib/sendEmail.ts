@@ -16,7 +16,11 @@ import type {
  * Résilience : si l'email invité échoue, la route renvoie une 500.
  */
 
-const FROM = 'Riviera Private Airways · Travel Booking Agency <billets@travelba.fr>';
+// L'adresse d'expédition DOIT appartenir à un domaine vérifié sur Resend.
+// Tant que `travelba.fr` n'est pas vérifié, on retombe sur l'adresse de test
+// `onboarding@resend.dev` (qui n'envoie qu'à l'adresse du compte Resend).
+const SENDER = process.env.SENDER_EMAIL ?? 'onboarding@resend.dev';
+const FROM = `Riviera Private Airways · Travel Booking Agency <${SENDER}>`;
 const REPLY_TO = process.env.AGENCY_EMAIL ?? 'contact@travelba.fr';
 
 function getResend(): Resend {
