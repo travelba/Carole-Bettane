@@ -42,7 +42,7 @@ function MiniBoardingPass({
           </p>
         </div>
         <span className="rounded-full bg-[#C9A84C] px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-[#1A1612]">
-          Première ★
+          Saint-Tropez ★
         </span>
       </div>
 

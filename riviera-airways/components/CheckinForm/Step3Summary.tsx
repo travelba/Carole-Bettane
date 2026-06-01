@@ -33,7 +33,7 @@ export function Step3Summary() {
     <div className="space-y-6">
       <div className="rounded-xl border border-[rgba(201,168,76,0.2)] bg-[#231F1A] p-5">
         <p className="text-xs uppercase tracking-widest text-[#C9A84C]">
-          Vols · Classe Première
+          Vos vols
         </p>
         <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
           {(['aller', 'retour'] as const).map((dir) => {

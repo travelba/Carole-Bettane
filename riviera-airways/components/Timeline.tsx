@@ -14,7 +14,7 @@ const ITINERARY: TimelineItem[] = [
     date: '03 JUL',
     time: '09:45',
     title: 'Décollage · Paris Orly',
-    description: 'Vol TO7020 en classe Première vers Toulon-Hyères. Arrivée 11:15.',
+    description: 'Vol TO7020 vers Toulon-Hyères. Arrivée 11:15.',
   },
   {
     date: '03 JUL',

@@ -40,7 +40,7 @@ export default function HomePage() {
               Votre billet
             </p>
             <h2 className="mt-3 font-display text-3xl italic text-[#F5E6C8] sm:text-4xl">
-              Embarquement en classe Première
+              Votre embarquement immédiat
             </h2>
           </div>
           <BoardingPassPreview direction="aller" />

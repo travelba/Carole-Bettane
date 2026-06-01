@@ -216,7 +216,7 @@ export function BoardingPassPDF({
               <Text style={styles.agency}>by Travel Booking Agency · {directionLabel}</Text>
             </View>
             <Text style={[styles.classBadge, { backgroundColor: accent }]}>
-              PREMIÈRE
+              SAINT-TROPEZ
             </Text>
           </View>
 

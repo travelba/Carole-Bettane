@@ -13,11 +13,11 @@ const cormorant = Cormorant_Garamond({
 export const metadata: Metadata = {
   title: 'Riviera Private Airways · Les 50 ans de Carole à Saint-Tropez',
   description:
-    "Invitation exclusive en classe Première pour célébrer les 50 ans de Carole à Saint-Tropez, du 3 au 5 juillet. Organisé par Travel Booking Agency.",
+    "Invitation exclusive pour célébrer les 50 ans de Carole à Saint-Tropez, du 3 au 5 juillet. Organisé par Travel Booking Agency.",
   openGraph: {
     title: 'Tu es invitée — les 50 ans de Carole à Saint-Tropez',
     description:
-      'Embarquement immédiat en classe Première · Riviera Private Airways by Travel Booking Agency',
+      'Embarquement immédiat · Riviera Private Airways by Travel Booking Agency',
     type: 'website',
   },
   robots: { index: false, follow: false },

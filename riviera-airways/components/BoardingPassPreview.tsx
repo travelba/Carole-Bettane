@@ -161,7 +161,7 @@ export function BoardingPassPreview({ direction = 'aller' }: BoardingPassPreview
               </div>
               <div className="mt-6">
                 <span className="inline-flex items-center gap-1 rounded-full bg-[#C9A84C] px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#1A1612]">
-                  Première <span aria-hidden>★</span>
+                  Saint-Tropez <span aria-hidden>★</span>
                 </span>
               </div>
             </div>

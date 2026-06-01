@@ -98,7 +98,7 @@ export function Hero({ onReserve }: HeroProps) {
           className="hero-reveal mt-8 text-xs uppercase tracking-[0.45em] text-[#7a6e64] sm:text-sm"
           style={delay(0.74)}
         >
-          3 · 4 · 5 Juillet · Vol privé
+          3 · 4 · 5 Juillet · Saint-Tropez
         </p>
 
         {/* 5. Cartes de vol */}
@@ -137,7 +137,7 @@ export function Hero({ onReserve }: HeroProps) {
             </span>
           </button>
           <p className="mt-4 text-xs text-[#7a6e64]">
-            Invitation exclusive · Classe Première
+            Invitation exclusive
           </p>
         </div>
       </div>
