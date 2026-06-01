@@ -11,28 +11,76 @@ interface TimelineItem {
 
 const ITINERARY: TimelineItem[] = [
   {
-    date: '03 JUL',
+    date: 'VEN 03 JUL',
     time: '09:45',
-    title: 'Décollage · Paris Orly',
-    description: 'Vol TO7020 vers Toulon-Hyères. Arrivée 11:15.',
+    title: 'Embarquement · Paris Orly',
+    description: 'Vol TO7020 à destination de Toulon-Hyères. Arrivée prévue à 11:15.',
   },
   {
-    date: '03 JUL',
+    date: 'VEN 03 JUL',
+    time: '12:00',
+    title: 'Accueil à la Toison d\'Or',
+    description: 'Transfert vers la résidence et installation des invités.',
+  },
+  {
+    date: 'VEN 03 JUL',
     time: '13:00',
-    title: 'Arrivée à Saint-Tropez',
-    description: 'Transfert privé et installation. Déjeuner face à la Méditerranée.',
+    title: 'Brunch de bienvenue',
+    description: 'Déjeuner d\'accueil face à la Méditerranée.',
   },
   {
-    date: '04 JUL',
-    time: '20:00',
+    date: 'VEN 03 JUL',
+    time: '15:00',
+    title: 'Après-midi détente',
+    description: 'Temps libre à la résidence : piscine et farniente.',
+  },
+  {
+    date: 'VEN 03 JUL',
+    time: '19:30',
+    title: 'Dîner d\'ouverture',
+    description: 'Premier dîner au restaurant pour lancer les festivités.',
+  },
+  {
+    date: 'SAM 04 JUL',
+    time: '10:00',
+    title: 'Petit-déjeuner',
+    description: 'Petit-déjeuner servi à la résidence.',
+  },
+  {
+    date: 'SAM 04 JUL',
+    time: '12:00',
+    title: 'Journée plage · Les Cybelles',
+    description: 'Déjeuner et après-midi à la plage des Cybelles.',
+  },
+  {
+    date: 'SAM 04 JUL',
+    time: '21:00',
     title: 'Soirée des 50 ans de Carole',
-    description: 'Le moment que tout le monde attend — dîner de gala et célébration.',
+    description: 'Dîner de gala et célébration — le temps fort du séjour.',
   },
   {
-    date: '05 JUL',
+    date: 'DIM 05 JUL',
+    time: '10:00',
+    title: 'Petit-déjeuner',
+    description: 'Petit-déjeuner servi à la résidence.',
+  },
+  {
+    date: 'DIM 05 JUL',
+    time: '12:00',
+    title: 'Journée plage · Playamigos',
+    description: 'Déjeuner et détente à la plage Playamigos.',
+  },
+  {
+    date: 'DIM 05 JUL',
+    time: '15:00',
+    title: 'Transfert vers l\'aéroport',
+    description: 'Départ de la résidence en direction de Nice Côte d\'Azur.',
+  },
+  {
+    date: 'DIM 05 JUL',
     time: '17:55',
-    title: 'Retour · Nice Côte d\'Azur',
-    description: 'Vol AF7315 vers Paris CDG. Arrivée 19:30, des souvenirs plein la tête.',
+    title: 'Vol retour · Nice Côte d\'Azur',
+    description: 'Vol AF7315 à destination de Paris CDG. Arrivée prévue à 19:30.',
   },
 ];
 
