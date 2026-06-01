@@ -1,6 +1,6 @@
 'use client';
 
-import { useFieldArray, useFormContext, useWatch } from 'react-hook-form';
+import { Controller, useFieldArray, useFormContext, useWatch } from 'react-hook-form';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import type { PassengerType } from '@/types/registration';
 import { maskDateFr } from '@/lib/maskDate';
@@ -59,7 +59,6 @@ export function Step2Passengers() {
   const {
     control,
     register,
-    setValue,
     formState: { errors },
   } = useFormContext<CheckinFormValues>();
 
@@ -184,18 +183,15 @@ export function Step2Passengers() {
               </div>
               <div>
                 <label className={labelClass}>Type</label>
-                <TypeSelector
-                  value={passengers[index]?.type ?? 'Adulte'}
-                  onChange={(next) =>
-                    setValue(`passengers.${index}.type`, next, {
-                      shouldValidate: true,
-                    })
-                  }
-                />
-                {/* Garde la valeur enregistrée auprès de react-hook-form */}
-                <input
-                  type="hidden"
-                  {...register(`passengers.${index}.type` as const)}
+                <Controller
+                  control={control}
+                  name={`passengers.${index}.type` as const}
+                  render={({ field }) => (
+                    <TypeSelector
+                      value={field.value ?? 'Adulte'}
+                      onChange={field.onChange}
+                    />
+                  )}
                 />
                 {errors.passengers?.[index]?.type && (
                   <p className={errorClass}>
