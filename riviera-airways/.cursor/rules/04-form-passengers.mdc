@@ -1,0 +1,47 @@
+---
+description: Formulaire multi-passagers — Zod schemas, validation
+globs: ["**/CheckinForm*", "**/Step*", "**/schemas*"]
+alwaysApply: false
+---
+
+# Formulaire Multi-Passagers
+
+## Schéma Zod
+```typescript
+const DATE_VOL = new Date('2025-07-03');
+
+const passengerSchema = z.object({
+  nom:           z.string().min(2, 'Minimum 2 caractères').max(50),
+  prenom:        z.string().min(2, 'Minimum 2 caractères').max(50),
+  dateNaissance: z.string().regex(/^\d{2}\/\d{2}\/\d{4}$/, 'Format : JJ/MM/AAAA'),
+  type:          z.enum(['Adulte', 'Enfant']),
+}).refine(data => {
+  if (data.type === 'Enfant') {
+    const [j,m,a] = data.dateNaissance.split('/').map(Number);
+    const age = (DATE_VOL.getTime() - new Date(a,m-1,j).getTime()) / (365.25*24*3600*1000);
+    return age < 12;
+  }
+  return true;
+}, { message: 'Un enfant doit avoir moins de 12 ans le 03/07', path: ['type'] });
+
+const contactSchema = z.object({
+  nom:           z.string().min(2).max(50),
+  prenom:        z.string().min(2).max(50),
+  dateNaissance: z.string().regex(/^\d{2}\/\d{2}\/\d{4}$/),
+  email:         z.string().email('Email invalide'),
+  telephone:     z.string().optional()
+    .transform(t => t ? t.replace(/[\s\-\.]/g,'').replace(/^0/,'+33') : undefined),
+});
+
+export const registrationSchema = z.object({
+  contact:    contactSchema,
+  passengers: z.array(passengerSchema).min(0).max(9),
+  consent:    z.literal(true),
+});
+```
+
+## UX
+- Contact = Passager 1 automatiquement (carte verrouillée)
+- Champ téléphone : mention "📱 Pour recevoir vos billets par WhatsApp"
+- Compteur : "✈ X adulte(s) · 🧒 Y enfant(s)"
+- Max 10 passagers total, erreurs en rose-gold (#B76E79)

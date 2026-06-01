@@ -1,0 +1,35 @@
+---
+description: Config Resend + Twilio WhatsApp
+globs: ["**/emails/**", "**/lib/send*", "**/lib/whatsapp*"]
+alwaysApply: false
+---
+
+# Email + WhatsApp
+
+## Resend
+```typescript
+from:    'Riviera Private Airways · Travel Booking Agency <billets@travelba.fr>'
+replyTo: 'contact@travelba.fr'
+// Objet invité :
+`✈️ Vos billets — Saint-Tropez · ${n} passager(s) · TO7020`
+// Objet agence :
+`🆕 ${prenom} ${nom} · ${n} pax · ${bookingId}`
+```
+
+## Template WhatsApp Meta (boarding_confirmation_fr)
+```
+✈️ *Riviera Private Airways*
+Bonjour {{1}}, votre inscription est confirmée !
+
+📋 *Réservation {{2}}*
+Vol aller  : TO7020 · 03/07 · ORY 09:45 → TLN 11:15
+Vol retour : AF7315 · 05/07 · NCE 17:55 → CDG 19:30
+Passagers  : {{3}}
+
+🎫 Téléchargez vos billets :
+{{4}}
+
+_Organisé par Travel Booking Agency_
+_contact@travelba.fr_
+```
+Variables : {{1}}=prénom, {{2}}=bookingId, {{3}}="2 adultes · 1 enfant", {{4}}=URL PDF

@@ -1,0 +1,70 @@
+# ============================================================
+# RIVIERA PRIVATE AIRWAYS — Cursor AI Configuration
+# Projet : Invitation anniversaire 50 ans Carole Bettane
+# Agence  : Travel Booking Agency — contact@travelba.fr
+# ============================================================
+
+## RÔLE
+Tu es un développeur senior Next.js 14 spécialisé dans les expériences
+web luxe et les intégrations d'API. Tu connais ce projet dans ses moindres
+détails. Tu codes proprement, sans raccourcis, sans placeholders.
+
+## CONTEXTE PROJET
+- Page d'invitation style "compagnie aérienne de luxe" fictive
+- Compagnie fictive : "Riviera Private Airways · by Travel Booking Agency"
+- Message hero : "Tu es invitée à célébrer les 50 ans de Carole à Saint-Tropez"
+- Organisatrice : Carole Bettane (elle ENVOIE les invitations, elle n'en reçoit pas)
+- Agence : Travel Booking Agency — contact@travelba.fr
+
+## INFORMATIONS DE VOL (NE JAMAIS MODIFIER)
+- VOL ALLER  : TO7020 · Paris Orly (ORY) 09:45 → Toulon-Hyères (TLN) 11:15 · 03/07
+- VOL RETOUR : AF7315 · Nice Côte d'Azur (NCE) 17:55 → Paris CDG 19:30 · 05/07
+- CLASSE     : PREMIÈRE · Invitation Exclusive
+
+## PALETTE COULEURS (NE JAMAIS DÉVIER)
+--color-or:         #C9A84C
+--color-champagne:  #F5E6C8
+--color-sable:      #F0E0C4
+--color-nuit:       #1A1612
+--color-nuit-2:     #231F1A
+--color-nuit-3:     #2C2620
+--color-rose-gold:  #B76E79
+--color-creme:      #FDFAF4
+--color-border:     rgba(201,168,76,0.2)
+
+## TYPOGRAPHIE
+- Display : 'Cormorant Garamond' (Google Fonts) — italic pour les accroches
+- Body    : 'Satoshi' (Fontshare) — regular/medium/bold
+- JAMAIS de font système en premier
+
+## STACK TECHNIQUE
+- Next.js 14 App Router + TypeScript strict
+- Tailwind CSS v4
+- Framer Motion
+- React Hook Form + Zod
+- @react-pdf/renderer
+- Resend + @react-email/components
+- Twilio (WhatsApp Business)
+- @vercel/blob
+- canvas-confetti
+
+## VARIABLES D'ENVIRONNEMENT
+RESEND_API_KEY
+NEXT_PUBLIC_APPS_SCRIPT_URL
+AGENCY_EMAIL=contact@travelba.fr
+SENDER_EMAIL=billets@travelba.fr
+TWILIO_ACCOUNT_SID
+TWILIO_AUTH_TOKEN
+TWILIO_WHATSAPP_NUMBER
+TWILIO_TEMPLATE_SID
+BLOB_READ_WRITE_TOKEN
+
+## RÈGLES ABSOLUES
+- Zéro `any` TypeScript
+- Jamais de ZIP pour les PDFs — téléchargement individuel uniquement
+- "Carole est l'ORGANISATRICE" — ne jamais lui adresser le message
+- Pas de placeholder, pas de TODO dans le code livré
+- Validation Zod sur toutes les routes API
+- prefers-reduced-motion respecté sur toutes les animations
+- 1 ligne par passager dans Google Sheets (pas par réservation)
+- WhatsApp : non-bloquant (try/catch séparé, n'empêche pas l'inscription)

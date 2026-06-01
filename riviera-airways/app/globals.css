@@ -1,0 +1,144 @@
+@import 'tailwindcss';
+@config '../tailwind.config.ts';
+
+/* ============================================================
+   Riviera Private Airways — Design System
+   Palette et tokens imposés (.cursor/rules/02-design-system)
+   ============================================================ */
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://api.fontshare.com/v2/fonts/satoshi/fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://api.fontshare.com/v2/fonts/satoshi/fonts/Satoshi-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('https://api.fontshare.com/v2/fonts/satoshi/fonts/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-display: swap;
+}
+
+:root {
+  --color-nuit: #1a1612;
+  --color-nuit-2: #231f1a;
+  --color-nuit-3: #2c2620;
+  --color-champagne: #f5e6c8;
+  --color-sable: #f0e0c4;
+  --color-or: #c9a84c;
+  --color-or-hover: #e2c06a;
+  --color-or-dim: rgba(201, 168, 76, 0.15);
+  --color-rose-gold: #b76e79;
+  --color-muted: #7a6e64;
+  --color-creme: #fdfaf4;
+  --color-border: rgba(201, 168, 76, 0.2);
+  --color-border-strong: rgba(201, 168, 76, 0.4);
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Satoshi', 'Inter', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-nuit);
+  color: var(--color-champagne);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-body {
+  font-family: var(--font-body);
+}
+
+/* Scrollbar discret façon luxe */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-nuit);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-strong);
+  border-radius: 9999px;
+}
+
+::selection {
+  background: var(--color-or);
+  color: var(--color-nuit);
+}
+
+/* ============================================================
+   Animations d'entrée du Hero (CSS — fiables même en onglet
+   d'arrière-plan, dégradation propre, respect reduced-motion)
+   ============================================================ */
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes plane-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-4deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(4deg);
+  }
+}
+
+.hero-reveal {
+  opacity: 1;
+  animation: hero-reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.plane-float {
+  animation: plane-float 3.5s ease-in-out infinite;
+}
+
+/* Transition entre les étapes du formulaire (fiable, sans JS) */
+@keyframes step-fade {
+  from {
+    opacity: 0;
+    transform: translateX(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.step-fade {
+  animation: step-fade 0.32s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

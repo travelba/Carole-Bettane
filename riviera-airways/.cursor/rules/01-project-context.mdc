@@ -1,0 +1,23 @@
+---
+description: Contexte complet du projet
+globs: ["**/*.tsx", "**/*.ts", "**/*.css"]
+alwaysApply: true
+---
+
+# Contexte — Riviera Private Airways
+
+## L'événement
+- Organisatrice : **Carole Bettane** (envoie les invitations)
+- Message : **"Tu es invitée à célébrer les 50 ans de Carole à Saint-Tropez"**
+- Agence : **Travel Booking Agency** — contact@travelba.fr
+
+## Vols
+| | Vol | De | À | Départ | Arrivée | Date |
+|---|---|---|---|---|---|---|
+| Aller | TO7020 | Paris Orly (ORY) | Toulon-Hyères (TLN) | 09:45 | 11:15 | 03/07 |
+| Retour | AF7315 | Nice (NCE) | Paris CDG | 17:55 | 19:30 | 05/07 |
+
+## Identité
+- Compagnie fictive : **Riviera Private Airways · by Travel Booking Agency**
+- Email expéditeur : billets@travelba.fr
+- Reply-to : contact@travelba.fr

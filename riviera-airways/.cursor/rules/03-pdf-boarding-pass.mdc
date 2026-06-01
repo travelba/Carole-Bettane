@@ -1,0 +1,37 @@
+---
+description: Génération billets PDF avec @react-pdf/renderer
+globs: ["**/BoardingPassPDF*", "**/pdf*", "**/generatePDF*"]
+alwaysApply: false
+---
+
+# Billets PDF
+
+## Specs
+- Format : 420×210pts (A6 paysage — taille réelle boarding pass)
+- Nommage : `billet-TO7020-{Prenom}-{NOM}.pdf`
+- Téléchargement : INDIVIDUEL — jamais de ZIP
+
+## Données vols
+```typescript
+const FLIGHT_DATA = {
+  aller:  { code:'TO7020', from:'ORY', fromCity:'Paris Orly',        to:'TLN', toCity:'Toulon Hyères',  dep:'09:45', arr:'11:15', date:'03 JUL 2025' },
+  retour: { code:'AF7315', from:'NCE', fromCity:'Nice Côte d\'Azur', to:'CDG', toCity:'Paris CDG',      dep:'17:55', arr:'19:30', date:'05 JUL 2025' },
+}
+```
+
+## Couleurs PDF
+```js
+bg:'#1A1612', text:'#F5E6C8', accent:'#C9A84C', muted:'#7a6e64', enfant:'#B76E79'
+```
+
+## Téléchargement client
+```typescript
+import { pdf } from '@react-pdf/renderer';
+const blob = await pdf(<BoardingPassPDF {...props} />).toBlob();
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = `billet-${flightCode}-${prenom}-${nom.toUpperCase()}.pdf`;
+a.click();
+URL.revokeObjectURL(url);
+```

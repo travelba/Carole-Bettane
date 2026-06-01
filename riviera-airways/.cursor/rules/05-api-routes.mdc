@@ -1,0 +1,28 @@
+---
+description: Routes API — ordre des opérations, types
+globs: ["**/api/**/*.ts", "**/lib/submit*", "**/lib/send*"]
+alwaysApply: false
+---
+
+# Route API POST /api/register
+
+## Ordre STRICT (ne pas changer)
+1. Valider body avec Zod
+2. Construire liste passagers (contact = pax 1)
+3. Google Sheets → bookingId
+4. Générer PDFs (aller + retour × chaque passager)
+5. Upload Vercel Blob (URLs pour WhatsApp)
+6. Envoyer email confirmation (PDFs en pièces jointes)
+7. Envoyer notification agence → contact@travelba.fr
+8. Envoyer WhatsApp SI telephone fourni (try/catch séparé — non bloquant)
+
+## Résilience
+- WhatsApp échoue → continuer (log uniquement)
+- Blob échoue → continuer sans WhatsApp
+- Email échoue → retourner erreur 500
+- Sheets échoue → tout échoue
+
+## bookingId
+```typescript
+const bookingId = 'BK2025-' + String(sheet.getLastRow()).padStart(4, '0');
+```
