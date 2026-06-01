@@ -89,6 +89,7 @@ export function Step1Contact() {
           id="contact-prenom"
           label="Prénom"
           autoComplete="given-name"
+          mask={(v) => v.toUpperCase()}
           registration={register('contact.prenom')}
           error={errors.contact?.prenom}
         />
@@ -96,6 +97,7 @@ export function Step1Contact() {
           id="contact-nom"
           label="Nom"
           autoComplete="family-name"
+          mask={(v) => v.toUpperCase()}
           registration={register('contact.nom')}
           error={errors.contact?.nom}
         />

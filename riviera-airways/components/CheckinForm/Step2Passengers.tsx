@@ -132,11 +132,22 @@ export function Step2Passengers() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className={labelClass}>Prénom</label>
-                <input
-                  className={inputClass}
-                  placeholder="Prénom"
-                  {...register(`passengers.${index}.prenom` as const)}
-                />
+                {(() => {
+                  const prenomReg = register(
+                    `passengers.${index}.prenom` as const
+                  );
+                  return (
+                    <input
+                      className={inputClass}
+                      placeholder="Prénom"
+                      {...prenomReg}
+                      onChange={(e) => {
+                        e.target.value = e.target.value.toUpperCase();
+                        return prenomReg.onChange(e);
+                      }}
+                    />
+                  );
+                })()}
                 {errors.passengers?.[index]?.prenom && (
                   <p className={errorClass}>
                     {errors.passengers[index]?.prenom?.message}
@@ -145,11 +156,20 @@ export function Step2Passengers() {
               </div>
               <div>
                 <label className={labelClass}>Nom</label>
-                <input
-                  className={inputClass}
-                  placeholder="Nom"
-                  {...register(`passengers.${index}.nom` as const)}
-                />
+                {(() => {
+                  const nomReg = register(`passengers.${index}.nom` as const);
+                  return (
+                    <input
+                      className={inputClass}
+                      placeholder="Nom"
+                      {...nomReg}
+                      onChange={(e) => {
+                        e.target.value = e.target.value.toUpperCase();
+                        return nomReg.onChange(e);
+                      }}
+                    />
+                  );
+                })()}
                 {errors.passengers?.[index]?.nom && (
                   <p className={errorClass}>
                     {errors.passengers[index]?.nom?.message}

@@ -3,84 +3,95 @@
 import { motion, useReducedMotion } from 'framer-motion';
 
 interface TimelineItem {
-  date: string;
   time: string;
   title: string;
   description: string;
 }
 
-const ITINERARY: TimelineItem[] = [
+interface TimelineDay {
+  day: string;
+  label: string;
+  items: TimelineItem[];
+}
+
+const ITINERARY: TimelineDay[] = [
   {
-    date: 'VEN 03 JUL',
-    time: '09:45',
-    title: 'Embarquement · Paris Orly',
-    description: 'Vol TO7020 à destination de Toulon-Hyères. Arrivée prévue à 11:15.',
+    day: 'Vendredi 3 juillet',
+    label: 'Jour 1 · Arrivée',
+    items: [
+      {
+        time: '09:45',
+        title: 'Embarquement · Paris Orly',
+        description: 'Vol TO7020 à destination de Toulon-Hyères. Arrivée prévue à 11:15.',
+      },
+      {
+        time: '12:00',
+        title: 'Accueil à la Toison d\'Or',
+        description: 'Transfert vers la résidence et installation des invités.',
+      },
+      {
+        time: '13:00',
+        title: 'Brunch de bienvenue',
+        description: 'Déjeuner d\'accueil face à la Méditerranée.',
+      },
+      {
+        time: '15:00',
+        title: 'Après-midi détente',
+        description: 'Temps libre à la résidence : piscine et farniente.',
+      },
+      {
+        time: '19:30',
+        title: 'Dîner d\'ouverture',
+        description: 'Premier dîner au restaurant pour lancer les festivités.',
+      },
+    ],
   },
   {
-    date: 'VEN 03 JUL',
-    time: '12:00',
-    title: 'Accueil à la Toison d\'Or',
-    description: 'Transfert vers la résidence et installation des invités.',
+    day: 'Samedi 4 juillet',
+    label: 'Jour 2 · Célébration',
+    items: [
+      {
+        time: '10:00',
+        title: 'Petit-déjeuner',
+        description: 'Petit-déjeuner servi à la résidence.',
+      },
+      {
+        time: '12:00',
+        title: 'Journée plage · Les Cybelles',
+        description: 'Déjeuner et après-midi à la plage des Cybelles.',
+      },
+      {
+        time: '21:00',
+        title: 'Soirée des 50 ans de Carole',
+        description: 'Dîner de gala et célébration — le temps fort du séjour.',
+      },
+    ],
   },
   {
-    date: 'VEN 03 JUL',
-    time: '13:00',
-    title: 'Brunch de bienvenue',
-    description: 'Déjeuner d\'accueil face à la Méditerranée.',
-  },
-  {
-    date: 'VEN 03 JUL',
-    time: '15:00',
-    title: 'Après-midi détente',
-    description: 'Temps libre à la résidence : piscine et farniente.',
-  },
-  {
-    date: 'VEN 03 JUL',
-    time: '19:30',
-    title: 'Dîner d\'ouverture',
-    description: 'Premier dîner au restaurant pour lancer les festivités.',
-  },
-  {
-    date: 'SAM 04 JUL',
-    time: '10:00',
-    title: 'Petit-déjeuner',
-    description: 'Petit-déjeuner servi à la résidence.',
-  },
-  {
-    date: 'SAM 04 JUL',
-    time: '12:00',
-    title: 'Journée plage · Les Cybelles',
-    description: 'Déjeuner et après-midi à la plage des Cybelles.',
-  },
-  {
-    date: 'SAM 04 JUL',
-    time: '21:00',
-    title: 'Soirée des 50 ans de Carole',
-    description: 'Dîner de gala et célébration — le temps fort du séjour.',
-  },
-  {
-    date: 'DIM 05 JUL',
-    time: '10:00',
-    title: 'Petit-déjeuner',
-    description: 'Petit-déjeuner servi à la résidence.',
-  },
-  {
-    date: 'DIM 05 JUL',
-    time: '12:00',
-    title: 'Journée plage · Playamigos',
-    description: 'Déjeuner et détente à la plage Playamigos.',
-  },
-  {
-    date: 'DIM 05 JUL',
-    time: '15:00',
-    title: 'Transfert vers l\'aéroport',
-    description: 'Départ de la résidence en direction de Nice Côte d\'Azur.',
-  },
-  {
-    date: 'DIM 05 JUL',
-    time: '17:55',
-    title: 'Vol retour · Nice Côte d\'Azur',
-    description: 'Vol AF7315 à destination de Paris CDG. Arrivée prévue à 19:30.',
+    day: 'Dimanche 5 juillet',
+    label: 'Jour 3 · Départ',
+    items: [
+      {
+        time: '10:00',
+        title: 'Petit-déjeuner',
+        description: 'Petit-déjeuner servi à la résidence.',
+      },
+      {
+        time: '12:00',
+        title: 'Journée plage · Playamigos',
+        description: 'Déjeuner et détente à la plage Playamigos.',
+      },
+      {
+        time: '15:00',
+        title: 'Transfert vers l\'aéroport',
+        description: 'Départ de la résidence en direction de Nice Côte d\'Azur.',
+      },
+      {
+        time: '17:55',
+        title: 'Vol retour · Nice Côte d\'Azur',
+        description: 'Vol AF7315 à destination de Paris CDG. Arrivée prévue à 19:30.',
+      },
+    ],
   },
 ];
 
@@ -97,31 +108,51 @@ export function Timeline() {
           </h2>
         </div>
 
-        <ol className="relative mt-16 border-l border-[rgba(201,168,76,0.25)] pl-8">
-          {ITINERARY.map((item, i) => (
-            <motion.li
-              key={i}
-              initial={{ opacity: 0, x: reduceMotion ? 0 : -16 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.6 }}
-              transition={{
-                duration: reduceMotion ? 0 : 0.5,
-                delay: reduceMotion ? 0 : i * 0.08,
-              }}
-              className="mb-12 last:mb-0"
+        <div className="mt-16 space-y-14">
+          {ITINERARY.map((day) => (
+            <motion.div
+              key={day.day}
+              initial={{ opacity: 0, y: reduceMotion ? 0 : 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: reduceMotion ? 0 : 0.5 }}
             >
-              <span className="absolute -left-[7px] mt-1 h-3 w-3 rounded-full bg-[#C9A84C] ring-4 ring-[#1A1612]" />
-              <div className="flex items-baseline gap-3">
-                <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A84C]">
-                  {item.date}
-                </span>
-                <span className="text-xs text-[#7a6e64]">{item.time}</span>
+              {/* En-tête du jour */}
+              <div className="mb-6">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C9A84C]">
+                  {day.label}
+                </p>
+                <h3 className="mt-1 font-display text-2xl italic text-[#F5E6C8] sm:text-3xl">
+                  {day.day}
+                </h3>
               </div>
-              <h3 className="mt-2 font-display text-xl text-[#F5E6C8]">{item.title}</h3>
-              <p className="mt-1 text-sm leading-relaxed text-[#7a6e64]">{item.description}</p>
-            </motion.li>
+
+              {/* Activités du jour */}
+              <ol className="relative border-l border-[rgba(201,168,76,0.25)] pl-8">
+                {day.items.map((item, i) => (
+                  <motion.li
+                    key={item.time + item.title}
+                    initial={{ opacity: 0, x: reduceMotion ? 0 : -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.6 }}
+                    transition={{
+                      duration: reduceMotion ? 0 : 0.4,
+                      delay: reduceMotion ? 0 : i * 0.06,
+                    }}
+                    className="mb-8 last:mb-0"
+                  >
+                    <span className="absolute -left-[7px] mt-1 h-3 w-3 rounded-full bg-[#C9A84C] ring-4 ring-[#1A1612]" />
+                    <span className="text-xs font-semibold uppercase tracking-widest text-[#C9A84C]">
+                      {item.time}
+                    </span>
+                    <h4 className="mt-1 font-display text-xl text-[#F5E6C8]">{item.title}</h4>
+                    <p className="mt-1 text-sm leading-relaxed text-[#7a6e64]">{item.description}</p>
+                  </motion.li>
+                ))}
+              </ol>
+            </motion.div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );

@@ -17,8 +17,8 @@ function ageAuVol(dateNaissance: string): number {
 
 export const passengerSchema = z
   .object({
-    nom: z.string().min(2, 'Minimum 2 caractères').max(50),
-    prenom: z.string().min(2, 'Minimum 2 caractères').max(50),
+    nom: z.string().trim().min(2, 'Minimum 2 caractères').max(50).toUpperCase(),
+    prenom: z.string().trim().min(2, 'Minimum 2 caractères').max(50).toUpperCase(),
     dateNaissance: z.string().regex(DATE_REGEX, 'Format : JJ/MM/AAAA'),
     type: z.enum(['Adulte', 'Enfant']),
   })
@@ -33,8 +33,8 @@ export const passengerSchema = z
   );
 
 export const contactSchema = z.object({
-  nom: z.string().min(2, 'Minimum 2 caractères').max(50),
-  prenom: z.string().min(2, 'Minimum 2 caractères').max(50),
+  nom: z.string().trim().min(2, 'Minimum 2 caractères').max(50).toUpperCase(),
+  prenom: z.string().trim().min(2, 'Minimum 2 caractères').max(50).toUpperCase(),
   dateNaissance: z.string().regex(DATE_REGEX, 'Format : JJ/MM/AAAA'),
   email: z.string().email('Email invalide'),
   telephone: z
