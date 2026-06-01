@@ -8,7 +8,7 @@ interface HeroProps {
   onReserve?: () => void;
 }
 
-const TITLE = 'Week-end Bobo Bling';
+const TITLE = 'Week-end\nBobo Bling';
 
 /** Petit helper pour positionner le délai d'animation d'un élément révélé. */
 const delay = (seconds: number): CSSProperties => ({ animationDelay: `${seconds}s` });
@@ -61,19 +61,23 @@ export function Hero({ onReserve }: HeroProps) {
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
         {/* 1. "Week-end Bobo Bling" lettre par lettre */}
         <h1
-          aria-label={TITLE}
+          aria-label={TITLE.replace('\n', ' ')}
           className="font-display font-light italic text-[#FDFAF4]"
           style={{ fontSize: 'clamp(3.25rem, 7vw, 6.5rem)', lineHeight: 1.05 }}
         >
-          {letters.map((char, i) => (
-            <span
-              key={i}
-              className="hero-reveal inline-block"
-              style={delay(0.1 + i * 0.035)}
-            >
-              {char === ' ' ? '\u00A0' : char}
-            </span>
-          ))}
+          {letters.map((char, i) =>
+            char === '\n' ? (
+              <br key={i} />
+            ) : (
+              <span
+                key={i}
+                className="hero-reveal inline-block"
+                style={delay(0.1 + i * 0.035)}
+              >
+                {char === ' ' ? '\u00A0' : char}
+              </span>
+            )
+          )}
         </h1>
 
         {/* 2. "à Saint-Tropez 🌴" en or */}

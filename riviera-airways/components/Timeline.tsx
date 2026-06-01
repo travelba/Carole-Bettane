@@ -28,7 +28,7 @@ const ITINERARY: TimelineDay[] = [
         time: '11:30',
         title: 'Location de voiture à l\'aéroport',
         description:
-          'Pensez à réserver une voiture de location à l\'aéroport de Toulon-Hyères : elle vous servira tout le week-end pour rejoindre Saint-Tropez et vous déplacer.',
+          'Pensez à réserver une voiture de location : récupération à l\'aéroport de Toulon-Hyères et restitution à l\'aéroport de Nice Côte d\'Azur. Elle vous servira tout le week-end pour rejoindre Saint-Tropez et vous déplacer.',
       },
       {
         time: '12:30',
@@ -62,19 +62,10 @@ const ITINERARY: TimelineDay[] = [
         description: 'Petit-déjeuner servi à la résidence.',
       },
       {
-        time: '10:45',
-        title: 'Yoga',
-        description: 'Séance de yoga pour bien démarrer la journée.',
-      },
-      {
-        time: '11:30',
-        title: 'Cours de sport',
-        description: 'Cours de sport collectif encadré.',
-      },
-      {
-        time: '12:15',
-        title: 'Padel',
-        description: 'Match de padel amical entre invités.',
+        time: '11:00',
+        title: 'Activités sportives · Yoga, cours de sport & padel',
+        description:
+          'Au choix et en simultané : séance de yoga, cours de sport collectif ou match de padel.',
       },
       {
         time: '13:00',
