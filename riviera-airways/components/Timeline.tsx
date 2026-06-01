@@ -42,8 +42,8 @@ const ITINERARY: TimelineDay[] = [
       },
       {
         time: '15:00',
-        title: 'Après-midi détente',
-        description: 'Temps libre à la résidence : piscine et farniente.',
+        title: 'Après-midi libre',
+        description: '',
       },
       {
         time: '19:30',
@@ -57,12 +57,7 @@ const ITINERARY: TimelineDay[] = [
     label: 'Jour 2 · Bobo Bling',
     items: [
       {
-        time: '10:00',
-        title: 'Petit-déjeuner',
-        description: 'Petit-déjeuner servi à la résidence.',
-      },
-      {
-        time: '11:00',
+        time: 'Dès 10:00',
         title: 'Activités sportives · Yoga, cours de sport & padel',
         description:
           'Au choix et en simultané : séance de yoga, cours de sport collectif ou match de padel.',
@@ -74,7 +69,7 @@ const ITINERARY: TimelineDay[] = [
       },
       {
         time: '21:00',
-        title: 'Soirée Bobo Bling',
+        title: 'Soirée festive',
         description: 'Dîner de gala et célébration — le temps fort du week-end.',
       },
     ],
@@ -83,11 +78,6 @@ const ITINERARY: TimelineDay[] = [
     day: 'Dimanche 5 juillet',
     label: 'Jour 3 · Départ',
     items: [
-      {
-        time: '10:00',
-        title: 'Petit-déjeuner',
-        description: 'Petit-déjeuner servi à la résidence.',
-      },
       {
         time: '12:00',
         title: 'Journée plage · Playamigos',
@@ -159,7 +149,9 @@ export function Timeline() {
                       {item.time}
                     </span>
                     <h4 className="mt-1 font-display text-xl text-[#F5E6C8]">{item.title}</h4>
-                    <p className="mt-1 text-sm leading-relaxed text-[#7a6e64]">{item.description}</p>
+                    {item.description && (
+                      <p className="mt-1 text-sm leading-relaxed text-[#7a6e64]">{item.description}</p>
+                    )}
                   </motion.li>
                 ))}
               </ol>
