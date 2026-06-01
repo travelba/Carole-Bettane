@@ -8,7 +8,7 @@ interface HeroProps {
   onReserve?: () => void;
 }
 
-const TITLE = 'Tu es invité(e)';
+const TITLE = 'Week-end Bobo Bling';
 
 /** Petit helper pour positionner le délai d'animation d'un élément révélé. */
 const delay = (seconds: number): CSSProperties => ({ animationDelay: `${seconds}s` });
@@ -28,7 +28,6 @@ export function Hero({ onReserve }: HeroProps) {
 
   // Délais échelonnés (total ~1.1s) — rapide et fiable.
   const letters = TITLE.split('');
-  const lastLetterDelay = 0.1 + (letters.length - 1) * 0.035;
 
   return (
     <section
@@ -60,7 +59,7 @@ export function Hero({ onReserve }: HeroProps) {
 
       {/* Contenu central */}
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        {/* 1. "Tu es invité(e)" lettre par lettre */}
+        {/* 1. "Week-end Bobo Bling" lettre par lettre */}
         <h1
           aria-label={TITLE}
           className="font-display font-light italic text-[#FDFAF4]"
@@ -77,15 +76,7 @@ export function Hero({ onReserve }: HeroProps) {
           ))}
         </h1>
 
-        {/* 2. "au Week-end Bobo Bling" */}
-        <p
-          className="hero-reveal mt-6 font-display text-2xl text-[#F5E6C8] sm:text-3xl"
-          style={delay(Math.max(0.5, lastLetterDelay))}
-        >
-          au Week-end Bobo Bling
-        </p>
-
-        {/* 3. "à Saint-Tropez 🌴" en or */}
+        {/* 2. "à Saint-Tropez 🌴" en or */}
         <p
           className="hero-reveal mt-2 font-display text-4xl font-medium text-[#C9A84C] sm:text-5xl"
           style={delay(0.62)}

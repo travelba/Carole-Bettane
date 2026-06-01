@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description:
     "Invitation exclusive pour le Week-end Bobo Bling à Saint-Tropez, du 3 au 5 juillet. Organisé par Travel Booking Agency.",
   openGraph: {
-    title: 'Tu es invité(e) — Week-end Bobo Bling à Saint-Tropez',
+    title: 'Week-end Bobo Bling à Saint-Tropez',
     description:
       'Embarquement immédiat · Riviera Private Airways by Travel Booking Agency',
     type: 'website',
