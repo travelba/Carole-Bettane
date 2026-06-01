@@ -8,7 +8,7 @@ interface HeroProps {
   onReserve?: () => void;
 }
 
-const TITLE = 'Tu es invitée';
+const TITLE = 'Tu es invité(e)';
 
 /** Petit helper pour positionner le délai d'animation d'un élément révélé. */
 const delay = (seconds: number): CSSProperties => ({ animationDelay: `${seconds}s` });
@@ -60,7 +60,7 @@ export function Hero({ onReserve }: HeroProps) {
 
       {/* Contenu central */}
       <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-        {/* 1. "Tu es invitée" lettre par lettre */}
+        {/* 1. "Tu es invité(e)" lettre par lettre */}
         <h1
           aria-label={TITLE}
           className="font-display font-light italic text-[#FDFAF4]"
@@ -77,12 +77,12 @@ export function Hero({ onReserve }: HeroProps) {
           ))}
         </h1>
 
-        {/* 2. "à célébrer les 50 ans de Carole" */}
+        {/* 2. "au Week-end Bobo Bling" */}
         <p
           className="hero-reveal mt-6 font-display text-2xl text-[#F5E6C8] sm:text-3xl"
           style={delay(Math.max(0.5, lastLetterDelay))}
         >
-          à célébrer les 50 ans de Carole
+          au Week-end Bobo Bling
         </p>
 
         {/* 3. "à Saint-Tropez 🌴" en or */}

@@ -25,9 +25,15 @@ const ITINERARY: TimelineDay[] = [
         description: 'Vol TO7020 à destination de Toulon-Hyères. Arrivée prévue à 11:15.',
       },
       {
-        time: '12:00',
-        title: 'Accueil à la Toison d\'Or',
-        description: 'Transfert vers la résidence et installation des invités.',
+        time: '11:30',
+        title: 'Location de voiture à l\'aéroport',
+        description:
+          'Pensez à réserver une voiture de location à l\'aéroport de Toulon-Hyères : elle vous servira tout le week-end pour rejoindre Saint-Tropez et vous déplacer.',
+      },
+      {
+        time: '12:30',
+        title: 'Arrivée à la Toison d\'Or',
+        description: 'Installation à la résidence.',
       },
       {
         time: '13:00',
@@ -42,13 +48,13 @@ const ITINERARY: TimelineDay[] = [
       {
         time: '19:30',
         title: 'Dîner d\'ouverture',
-        description: 'Premier dîner au restaurant pour lancer les festivités.',
+        description: 'Premier dîner au restaurant pour lancer le week-end.',
       },
     ],
   },
   {
     day: 'Samedi 4 juillet',
-    label: 'Jour 2 · Célébration',
+    label: 'Jour 2 · Bobo Bling',
     items: [
       {
         time: '10:00',
@@ -56,14 +62,29 @@ const ITINERARY: TimelineDay[] = [
         description: 'Petit-déjeuner servi à la résidence.',
       },
       {
-        time: '12:00',
-        title: 'Journée plage · Les Cybelles',
-        description: 'Déjeuner et après-midi à la plage des Cybelles.',
+        time: '10:45',
+        title: 'Yoga',
+        description: 'Séance de yoga pour bien démarrer la journée.',
+      },
+      {
+        time: '11:30',
+        title: 'Cours de sport',
+        description: 'Cours de sport collectif encadré.',
+      },
+      {
+        time: '12:15',
+        title: 'Padel',
+        description: 'Match de padel amical entre invités.',
+      },
+      {
+        time: '13:00',
+        title: 'Journée plage · Cybèle',
+        description: 'Déjeuner et après-midi à la plage Cybèle.',
       },
       {
         time: '21:00',
-        title: 'Soirée des 50 ans de Carole',
-        description: 'Dîner de gala et célébration — le temps fort du séjour.',
+        title: 'Soirée Bobo Bling',
+        description: 'Dîner de gala et célébration — le temps fort du week-end.',
       },
     ],
   },
@@ -83,8 +104,9 @@ const ITINERARY: TimelineDay[] = [
       },
       {
         time: '15:00',
-        title: 'Transfert vers l\'aéroport',
-        description: 'Départ de la résidence en direction de Nice Côte d\'Azur.',
+        title: 'Départ vers l\'aéroport',
+        description:
+          'Restitution de la voiture de location et route vers l\'aéroport de Nice Côte d\'Azur.',
       },
       {
         time: '17:55',

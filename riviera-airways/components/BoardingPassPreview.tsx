@@ -171,7 +171,7 @@ export function BoardingPassPreview({ direction = 'aller' }: BoardingPassPreview
           <div className="flex items-center justify-between gap-4 border-t border-dashed border-[rgba(201,168,76,0.3)] bg-[#2C2620] px-6 py-4 sm:px-8">
             <Barcode />
             <p className="text-right text-[10px] uppercase tracking-widest text-[#7a6e64]">
-              Célébration des 50 ans de Carole
+              Week-end Bobo Bling
               <span className="block text-[#C9A84C]">Saint-Tropez · 03–05 JUL 2025</span>
             </p>
           </div>

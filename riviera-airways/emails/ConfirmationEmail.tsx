@@ -61,7 +61,7 @@ export function ConfirmationEmail({
               Bonjour {prenom},
             </Heading>
             <Text style={{ color: COLORS.text, fontSize: 15, lineHeight: '24px', margin: '0 0 8px' }}>
-              Votre inscription pour célébrer les 50 ans de Carole à Saint-Tropez
+              Votre inscription pour le Week-end Bobo Bling à Saint-Tropez
               est confirmée. Vos billets sont joints à cet email en pièces jointes
               (téléchargement individuel).
             </Text>
