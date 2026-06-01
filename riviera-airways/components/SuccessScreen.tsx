@@ -3,7 +3,6 @@
 import { useEffect, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import confetti from 'canvas-confetti';
-import { downloadBoardingPass } from '@/lib/downloadBoardingPass';
 import {
   FLIGHT_DATA,
   seatForPassenger,
@@ -144,6 +143,9 @@ export function SuccessScreen({
     const key = `${index}-${direction}`;
     setDownloading(key);
     try {
+      // Import dynamique : @react-pdf/renderer n'est chargé qu'au 1er clic,
+      // ce qui l'exclut du bundle initial de la page.
+      const { downloadBoardingPass } = await import('@/lib/downloadBoardingPass');
       await downloadBoardingPass({ passenger, index, direction, bookingId });
     } finally {
       setDownloading(null);
