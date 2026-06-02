@@ -47,8 +47,8 @@ const ITINERARY: TimelineDay[] = [
       },
       {
         time: '19:30',
-        title: 'Dîner d\'ouverture',
-        description: 'Premier dîner au restaurant pour lancer le week-end.',
+        title: 'Chabbat à la Bouillabaisse',
+        description: 'Apéro coucher de soleil et dîner les pieds dans l\'eau.',
       },
     ],
   },
@@ -63,9 +63,9 @@ const ITINERARY: TimelineDay[] = [
           'Au choix et en simultané : séance de yoga, cours de sport collectif ou match de padel.',
       },
       {
-        time: '13:00',
+        time: 'Dès 10:00',
         title: 'Journée plage · Cybèle',
-        description: 'Déjeuner et après-midi à la plage Cybèle.',
+        description: 'Ouvert dès 10h pour ceux qui veulent — transats réservés !',
       },
       {
         time: '21:00',
@@ -79,9 +79,9 @@ const ITINERARY: TimelineDay[] = [
     label: 'Jour 3 · Départ',
     items: [
       {
-        time: '12:00',
+        time: 'Dès 10:00',
         title: 'Journée plage · Playamigos',
-        description: 'Déjeuner et détente à la plage Playamigos.',
+        description: 'Ouvert dès 10h pour ceux qui veulent — transats réservés !',
       },
       {
         time: '15:00',
